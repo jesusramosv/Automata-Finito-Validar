@@ -1,0 +1,34 @@
+body{
+	 background-image: url("../img/fondo4.jpg");
+}
+
+.row .form{
+
+	margin-top: 50%;
+}
+
+.row .col{
+	margin-left: 19.5%;
+	margin-top: 5%;
+}
+
+#titulo{
+	    width: 100%;
+    height: 100%;
+    margin-top: 4px;
+    color: white;
+    text-align: center;
+}
+.modal .modal-content{
+	 background-image: url("../img/modal.jpg");
+
+
+}
+.waves-effect{
+
+	margin-left: 12%;
+}
+
+.row .col.s6{
+	color: blue;
+}

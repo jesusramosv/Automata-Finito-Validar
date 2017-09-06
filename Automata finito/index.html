@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Automata</title>
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+<script src="https://cdnjs.cloudflare.com/ajxax/libs/vis/4.20.1/vis.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+       <script src="js/Automata.js"></script>
+		<link href="css/estilos.css" rel="stylesheet" type="text/css" />
+		    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    
+
+
+</head>
+<body>
+
+<!-- Modal -->
+	<div id="modal1" class="modal">
+		<div class="modal-content" id="contenido_modal">
+
+
+			
+		</div>
+		<div class="modal-footer">
+			<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">OK</a>
+		</div>
+	</div>
+
+
+  
+  	<div  id="titulo">
+
+  	<h1>Validar Expresion</h1>
+	  
+    </div>  
+  <div class="row">
+	  <div class="col md 3"></div>
+	  <div class="col md 6">
+	  	
+	    <form class="col s12">
+	      <div class="row">
+	        <div class="input-field col s6">
+	          <i class="material-icons prefix">account_circle</i>
+
+	          <input id="id-expresion" type="text" class="validate" placeholder="Expresion" required>
+	        
+	          <a id="id-button" class="waves-effect waves-light btn" ><i  class="material-icons left " onclick="">call_made</i>Validar</a>
+	        </div>
+	       
+	      </div>
+	    </form>
+	   
+	    <div class="col md 3"></div>
+	  </div>
+    </div>  
+  <script>
+	 $(document).ready(function(){
+    // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+    $('.modal').modal();
+  });
+
+	 
+	</script>
+	<script type="text/javascript">
+		  jQuery('.modal').modal({
+      dismissible: true, // Modal can be dismissed by clicking outside of the modal
+      opacity: .5, // Opacity of modal background
+      inDuration: 300, // Transition in duration
+      outDuration: 200, // Transition out duration
+      startingTop: '4%', // Starting top style attribute
+      endingTop: '10%', // Ending top style attribute
+      ready: function(modal, trigger) { // Callback for Modal open. Modal and trigger parameters available.
+        alert("Ready");
+        console.log(modal, trigger);
+      },
+      complete: function() { alert('Closed'); } // Callback for Modal close
+    }
+  );
+	</script>
+
+	<div id="dibujar"></div>
+
+    <script>
+ // Arreglo de nodos
+ var n = [
+   {id: 1, label: 'Nodo 1', color:'Red'},
+   {id: 2, label: 'Nodo 2', color:'Red'},
+   {id: 3, label: 'Nodo 3', color:'Red'},
+   {id: 4, label: 'Nodo 4'},
+   {id: 5, label: 'Nodo 5', color:'Red'},
+   {id: 6, label: 'Nodo 6'},
+   {id: 7, label: 'Nodo 7', color:'Red'},
+   {id: 8, label: 'Nodo 8'},
+   {id: 9, label: 'Nodo 9'},
+   {id: 10, label: 'Nodo 10'},
+   {id: 11, label: 'Nodo 11'},
+   {id: 12, label: 'Nodo 12', color:'Red'},
+   {id: 13, label: 'Nodo 13', color:'Red'},
+   {id: 0, label: 'Nodo 0'},
+   
+ ];
+
+ // Arreglo de conexiones
+ var c = [
+   {from: 0, to: 1, arrows:'to', label:"+"},
+   {from: 0, to: 2, arrows:'to', label:"-"},
+   {from: 0, to: 3, arrows:'to', label:"="},
+   {from: 0, to: 4, arrows:'to', label:"1-9"},
+   {from: 0, to: 6, arrows:'to', label:"Letra-p"},
+   {from: 0, to: 8, arrows:'to', label:"p"},
+   {from: 4, to: 4, arrows:'to', label:"0-9"},
+   {from: 4, to: 5, arrows:'to', label:"Otro"},
+   {from: 6, to: 6, arrows:'to', label:"Letra"},
+   {from: 6, to: 7, arrows:'to', label:"Otro"},
+   {from: 8, to: 6, arrows:'to', label:"Letra-r"},
+   {from: 8, to: 9, arrows:'to', label:"r"},
+   {from: 8, to: 13, arrows:'to', label:"Otro"},
+   {from: 9, to: 10, arrows:'to', label:"i"},
+   {from: 9, to: 6, arrows:'to', label:"Letra-i"},
+   {from: 9, to: 13, arrows:'to', label:"Otro"},
+   {from: 10, to: 11, arrows:'to', label:"n"},
+   {from: 10, to: 13, arrows:'to', label:"Otro"},
+   {from: 10, to: 6, arrows:'to', label:"Letra-n"},
+   {from: 11, to: 12, arrows:'to', label:"t"},
+   {from: 11, to: 13, arrows:'to', label:"Otro"},
+   {from: 11, to: 6, arrows:'to', label:"Letra-t"}
+ ];
+
+ // Creando el contenedor para el canvas
+ var contenedor = document.getElementById('dibujo');
+ var datos_dibujo = {
+   nodes: n,
+   edges: c
+ };
+ var config = {}; //Se puede personalizar
+ var dibujo = new vis.Network(contenedor, datos_dibujo, config);
+
+   </script>
+
+
+</body>
+</html>
